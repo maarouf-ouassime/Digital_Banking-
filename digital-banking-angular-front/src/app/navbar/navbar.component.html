@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand" style="background-color: tomato;" aria-label="Second navbar example">
+  <div class="container">
+    <a class="navbar-brand" href="#" style="color: white;">Ramli's Bank</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02"
+      aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation" wfd-invisible="true">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/accounts" style="color: white;">Accounts</a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="isAdmin">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false" style="color: white;">
+            Customers
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/customers">Search customers</a></li>
+            <li><a class="dropdown-item" routerLink="/new-customer">New customer</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-right" *ngIf="!isLoggedIn">
+        <li class="nav-item " style="margin-right: 5px;">
+          <a href="/register" class="nav-link up btn btn-outline-info" routerLink="register" style="color: white;">Sign
+            Up</a>
+        </li>
+        <li class="nav-item">
+          <a href="/login" class="nav-link in btn btn-outline-secondary" routerLink="login"
+            style="width: 200%;color: black;">Login</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav navbar-right" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a href="/profile" class="nav-link" routerLink="profile"
+            style="position: fixed; margin-left: 790px; width: 110px; ">{{ username }}</a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" style="width: 160%; margin-left: 1290%;" (click)="logout()">LogOut</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

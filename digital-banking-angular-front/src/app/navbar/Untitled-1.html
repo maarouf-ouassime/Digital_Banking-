@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">EBank</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02"
+            aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation" wfd-invisible="true">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/accounts">Accounts</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Customers
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" routerLink="/customers">Search customers</a></li>
+                        <li><a class="dropdown-item" routerLink="/new-customer">New customer</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav navbar-right" *ngIf="!isLoggedIn">
+                <li class="nav-item">
+                  <a href="/register" class="nav-link up btn btn-outline-info" routerLink="register">Sign
+                    Up</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/login" class="nav-link in btn btn-outline-secondary" routerLink="login" style="width: 200%;">Login</a>
+                </li>
+              </ul>
+            
+              <ul class="navbar-nav navbar-right" *ngIf="isLoggedIn">
+                <li class="nav-item">
+                  <a href="/profile" class="nav-link" routerLink="profile"
+                    style="position: fixed; margin-left: 790px; width: 110px; ">{{ username }}</a>
+                </li>
+                <li class="nav-item">
+                  <a href class="nav-link" style="width: 160%; margin-left: 1290%;" (click)="logout()">LogOut</a>
+                </li>
+              </ul>
+        </div>
+    </div>
+</nav>
