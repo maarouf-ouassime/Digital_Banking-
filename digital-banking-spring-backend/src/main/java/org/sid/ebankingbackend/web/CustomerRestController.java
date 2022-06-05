@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
+
 @RestController
 @AllArgsConstructor
 @Slf4j
@@ -26,7 +27,8 @@ public class CustomerRestController {
 
     @GetMapping("/customers/search")
     @PreAuthorize("hasRole('ADMIN')")
-    public List<CustomerDTO> searchCustomers(@RequestParam(name = "keyword", defaultValue = "") String keyword) {
+    public List<CustomerDTO> searchCustomers(
+            @RequestParam(name = "keyword", defaultValue = "") String keyword) {
         return bankAccountService.searchCustomers("%" + keyword + "%");
     }
 

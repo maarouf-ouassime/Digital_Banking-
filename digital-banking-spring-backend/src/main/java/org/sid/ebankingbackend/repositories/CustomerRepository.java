@@ -1,8 +1,6 @@
 package org.sid.ebankingbackend.repositories;
 
-import org.sid.ebankingbackend.entities.BankAccount;
 import org.sid.ebankingbackend.entities.Customer;
-import org.sid.ebankingbackend.services.BankAccountService;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -22,6 +20,4 @@ public interface CustomerRepository extends JpaRepository<Customer,Long> {
     @EntityGraph(attributePaths = { "bankAccounts" })
     Customer getById(Long id);
 
-//    @Query("select a from BankAccount a where c.name like :kw")
-//    List<Customer> searchCustomer(@Param("kw") String keyword);
 }

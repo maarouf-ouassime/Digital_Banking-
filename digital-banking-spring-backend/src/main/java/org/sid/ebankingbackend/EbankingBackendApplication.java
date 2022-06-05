@@ -7,21 +7,18 @@ import org.sid.ebankingbackend.dtos.SavingBankAccountDTO;
 import org.sid.ebankingbackend.entities.*;
 import org.sid.ebankingbackend.enums.AccountStatus;
 import org.sid.ebankingbackend.enums.OperationType;
-import org.sid.ebankingbackend.exceptions.BalanceNotSufficientException;
-import org.sid.ebankingbackend.exceptions.BankAccountNotFoundException;
+
 import org.sid.ebankingbackend.exceptions.CustomerNotFoundException;
 import org.sid.ebankingbackend.repositories.AccountOperationRepository;
 import org.sid.ebankingbackend.repositories.BankAccountRepository;
 import org.sid.ebankingbackend.repositories.CustomerRepository;
 import org.sid.ebankingbackend.services.BankAccountService;
-import org.sid.ebankingbackend.services.BankService;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -37,10 +34,6 @@ public class EbankingBackendApplication {
         SpringApplication.run(EbankingBackendApplication.class, args);
     }
 
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -62,8 +55,10 @@ public class EbankingBackendApplication {
            });
            bankAccountService.listCustomers().forEach(customer->{
                try {
-                   bankAccountService.saveCurrentBankAccount(Math.random()*90000,9000,customer.getId());
-                   bankAccountService.saveSavingBankAccount(Math.random()*120000,5.5,customer.getId());
+                   bankAccountService.saveCurrentBankAccount
+                           (Math.random()*90000,9000,customer.getId());
+                   bankAccountService.saveSavingBankAccount
+                           (Math.random()*120000,5.5,customer.getId());
 
                } catch (CustomerNotFoundException e) {
                    e.printStackTrace();

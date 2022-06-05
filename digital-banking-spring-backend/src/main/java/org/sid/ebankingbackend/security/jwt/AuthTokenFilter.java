@@ -1,7 +1,5 @@
 package org.sid.ebankingbackend.security.jwt;
 
-
-
 import java.io.IOException;
 
 import javax.servlet.FilterChain;
@@ -21,7 +19,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import org.sid.ebankingbackend.security.services.UserDetailsServiceImpl;
 
-
 public class AuthTokenFilter extends OncePerRequestFilter {
 	@Autowired
 	private JwtUtils jwtUtils;
@@ -32,7 +29,8 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 	private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
 
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+	protected void doFilterInternal
+			(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 		try {
 			String jwt = parseJwt(request);
