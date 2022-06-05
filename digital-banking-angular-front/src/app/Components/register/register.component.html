@@ -1,5 +1,5 @@
 <div class="col-md-12">
-<div class="card card-container" style="background-color: rgb(221, 221, 221);">
+<div class="card card-container" style="background-color: rgb(221, 250, 221);">
 
 <form
 *ngIf="!isSuccessful"
@@ -67,7 +67,7 @@ Password must be at least 6 characters
 </div>
 </div>
 <div class="form-group">
-<button class="btn btn-primary btn-block" style="background-color: tomato;">Sign Up</button>
+<button class="btn btn-primary btn-block" style="background-color: darkolivegreen;">Sign Up</button>
 </div>
 
 <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed" style="margin-top: 10px;">
@@ -78,5 +78,7 @@ Signup failed!<br />{{ errorMessage }}
 <div class="alert alert-success" *ngIf="isSuccessful">
 Your registration is successful!
 </div>
+
+
 </div>
 </div>

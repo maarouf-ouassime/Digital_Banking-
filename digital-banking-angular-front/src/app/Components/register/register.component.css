@@ -36,3 +36,10 @@ margin-top: 10px;
 margin-left: 30%;
 width: 45%;
 }
+
+.container-720 {
+  font-family: sans-serif;
+  max-width: 720px;
+  margin: auto;
+  background: #fff;
+}

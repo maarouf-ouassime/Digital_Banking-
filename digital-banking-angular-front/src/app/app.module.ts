@@ -11,9 +11,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { NewCustomerComponent } from './new-customer/new-customer.component';
 import { CustomerAccountsComponent } from './customer-accounts/customer-accounts.component';
 
-import { BoardAdminComponent } from './Components/board-admin/board-admin.component';
-import { BoardModeratorComponent } from './Components/board-moderator/board-moderator.component';
-import { BoardUserComponent } from './Components/board-user/board-user.component';
+
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
@@ -30,9 +28,6 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     AccountsComponent,
     NewCustomerComponent,
     CustomerAccountsComponent,
-    BoardAdminComponent,
-    BoardModeratorComponent,
-    BoardUserComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,
@@ -44,7 +39,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule
-    
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

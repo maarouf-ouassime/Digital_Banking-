@@ -1,5 +1,4 @@
 package org.sid.ebankingbackend.security;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,10 +17,15 @@ import org.sid.ebankingbackend.security.jwt.AuthEntryPointJwt;
 import org.sid.ebankingbackend.security.jwt.AuthTokenFilter;
 import org.sid.ebankingbackend.security.services.UserDetailsServiceImpl;
 
+
+
 @SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(
+		// securedEnabled = true,
+		// jsr250Enabled = true,
+		prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	UserDetailsServiceImpl userDetailsService;
@@ -56,6 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.authorizeRequests().antMatchers("/api/auth/**").permitAll()
+			.antMatchers("/api/test/**").permitAll()
 			.anyRequest().authenticated();
 
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
